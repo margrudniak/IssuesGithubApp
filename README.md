@@ -3,7 +3,12 @@
 # THIS MAKRDOWN WAS TYPED ON RAPID SPEED SO, PLEASE READ THIS ON RAW FORMAT
 
 Project was developed on Macbook with M1 processor, so to run on Intel, You have to change last lines on **Podfile**
+
 Project was tested only on iOS
+
+To be authorized on GithubAPI make `token.ts` file on root path. Contain:
+
+`export const token = 'XXXXXXXXXXXXXXX';`
 
 ### ON M1
 
