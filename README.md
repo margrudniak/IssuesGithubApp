@@ -1,6 +1,6 @@
 # IssuesGithubApp
 
-# THIS MAKRDOWN WAS TYPED ON RAPID SPEED SO, PLEASE READ THIS ON RAW FORMAT
+# THIS MARKDOWN WAS TYPED ON RAPID SPEED SO, PLEASE READ THIS ON RAW FORMAT
 
 Project was developed on Macbook with M1 processor, so to run on Intel, You have to change last lines on **Podfile**
 
