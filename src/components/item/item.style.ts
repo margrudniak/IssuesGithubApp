@@ -1,7 +1,22 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, ViewStyle} from 'react-native';
 
-interface Styles {}
+interface Styles {
+  container: ViewStyle;
+  element: ViewStyle;
+}
 
-const style = StyleSheet.create<Styles>({});
+const styles = StyleSheet.create<Styles>({
+  container: {
+    backgroundColor: '#DEDEDE',
+    borderRadius: 50,
+    marginVertical: 20,
+    padding: 20,
+  },
+  element: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingBottom: 10,
+  },
+});
 
-export default style;
+export default styles;
