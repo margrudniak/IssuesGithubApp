@@ -1,7 +1,14 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, TextStyle, View} from 'react-native';
+import styles from './gtext.style';
+export interface GTextProps {
+  style?: TextStyle;
+}
 
-export interface GTextProps {}
-export const GText: React.FC<GTextProps> = ({children}) => {
-  return <Text>{children}</Text>;
+export const GText: React.FC<GTextProps> = ({children, style}) => {
+  return (
+    <View style={[styles.container, style]}>
+      <Text style={styles.text}>{children}</Text>
+    </View>
+  );
 };
