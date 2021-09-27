@@ -3,6 +3,7 @@ import {ActivityIndicator, FlatList} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {GText, Item} from '../../components';
 import {getIssues} from '../../utils/api';
+import styles from './main_screen.style';
 
 type Issue = {
   id: number;
@@ -21,10 +22,6 @@ export const MainScreen: React.FC<MainScreenProps> = ({navigation}) => {
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => console.log('data', data), [data]);
-
-  useEffect(() => console.log('isLoading', isLoading), [isLoading]);
-
   useEffect(() => {
     getIssues(
       page,
@@ -38,8 +35,7 @@ export const MainScreen: React.FC<MainScreenProps> = ({navigation}) => {
   const renderError = () => <GText>{'SOMETHING WENT WRONG ...'}</GText>;
 
   return (
-    <SafeAreaView
-      style={{flex: 1, justifyContent: 'space-between', alignItems: 'center'}}>
+    <SafeAreaView style={styles.container}>
       {isError ? (
         renderError()
       ) : isLoading ? (
@@ -47,7 +43,7 @@ export const MainScreen: React.FC<MainScreenProps> = ({navigation}) => {
       ) : (
         <FlatList
           data={data}
-          keyExtractor={item => item.id + ''}
+          keyExtractor={(item, index) => index + ''}
           renderItem={({item}) => (
             <Item
               number={item.number}
@@ -55,6 +51,7 @@ export const MainScreen: React.FC<MainScreenProps> = ({navigation}) => {
               title={item.title}
               onPress={() =>
                 navigation.navigate('Element', {
+                  id: item.id,
                   state: item.state,
                   title: item.title,
                   body: item.body,
